@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (13)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .Spinner {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+      }
+
+      .Spinner-bar {
+        animation: spin 1s ease-in-out infinite;
+        border-radius: 4px;
+        display: inline-block;
+        height: 18px;
+        width: 4px;
+      }
+
+      .Spinner-bar:nth-child(1) {
+        animation-delay: 0;
+        background-color: hsla(206, 20%, 67%, 0.25);
+      }
+
+      .Spinner-bar:nth-child(2) {
+        animation-delay: 0.09s;
+        background-color: hsla(206, 20%, 67%, 0.5);
+      }
+
+      .Spinner-bar:nth-child(3) {
+        animation-delay: 0.18s;
+        background-color: hsla(206, 20%, 67%, 0.75);
+      }
+
+      .Spinner-bar:nth-child(4) {
+        animation-delay: 0.27s;
+        background-color: hsla(206, 20%, 67%, 1);
+      }
+
+      @keyframes spin {
+        0% {
+          transform: scale(1);
+        }
+        20% {
+          transform: scale(1, 2.2);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="Spinner">
+      <div class="Spinner-bar"></div>
+      <div class="Spinner-bar"></div>
+      <div class="Spinner-bar"></div>
+      <div class="Spinner-bar"></div>
+    </div>
+
+  </body>
+</html>

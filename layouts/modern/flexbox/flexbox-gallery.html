@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Flexbox Gallery</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .Gallery {
+        display: grid;
+        flex-wrap: wrap;
+        grid-gap: 0.2rem;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-auto-rows: minmax(20vh, 200px);
+      }
+
+      .Gallery li {
+        flex: 0 0 auto;
+        flex-wrap: wrap;
+        height: 20vh;
+        margin: .12rem;
+        min-width: 15rem;
+        width: 20rem;
+      }
+
+      @supports (display: grid) {
+
+        .Gallery li {
+          height: initial;
+          margin: unset;
+          min-width: initial;
+          width: initial;
+        }
+
+        .Gallery li:nth-of-type(2n + 2) {
+          grid-row: span 2;
+        }
+
+      }
+
+      body {
+        background: hsl(206, 20%, 67%);
+        color: hsl(0, 100%, 100%);
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 300;
+        letter-spacing: .03rem;
+        line-height: 1;
+        margin: 1rem;
+      }
+
+      p {
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+
+      li:nth-of-type(1)  { background-image: url(https://picsum.photos/200/300/?random); }
+      li:nth-of-type(2)  { background-image: url(https://picsum.photos/210/310/?random); }
+      li:nth-of-type(3)  { background-image: url(https://picsum.photos/220/320/?random); }
+      li:nth-of-type(4)  { background-image: url(https://picsum.photos/230/330/?random); }
+      li:nth-of-type(5)  { background-image: url(https://picsum.photos/240/340/?random); }
+      li:nth-of-type(6)  { background-image: url(https://picsum.photos/250/350/?random); }
+      li:nth-of-type(7)  { background-image: url(https://picsum.photos/260/360/?random); }
+      li:nth-of-type(8)  { background-image: url(https://picsum.photos/270/370/?random); }
+      li:nth-of-type(9)  { background-image: url(https://picsum.photos/280/380/?random); }
+      li:nth-of-type(10) { background-image: url(https://picsum.photos/290/390/?random); }
+      li:nth-of-type(11) { background-image: url(https://picsum.photos/300/200/?random); }
+      li:nth-of-type(12) { background-image: url(https://picsum.photos/310/210/?random); }
+      li:nth-of-type(13) { background-image: url(https://picsum.photos/320/220/?random); }
+      li:nth-of-type(14) { background-image: url(https://picsum.photos/330/230/?random); }
+      li:nth-of-type(15) { background-image: url(https://picsum.photos/340/240/?random); }
+      li:nth-of-type(16) { background-image: url(https://picsum.photos/350/250/?random); }
+      li:nth-of-type(17) { background-image: url(https://picsum.photos/360/260/?random); }
+      li:nth-of-type(18) { background-image: url(https://picsum.photos/370/270/?random); }
+
+      ul,
+      li {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      li {
+        align-items: stretch;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex: 1 0 100%;
+        flex-direction: column;
+        justify-content: flex-end;
+        line-height: 3;
+        overflow: hidden;
+      }
+
+      li:hover .item-title,
+      li:focus .item-title {
+        background-color: hsl(206, 20%, 40%);
+        height: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        transform: translateY(0);
+      }
+
+      .Gallery\/ItemTitle {
+        background-color: hsla(206, 20%, 40%, 0.5);
+        color: hsl(0, 100%, 100%);
+        font-size: 0.8rem;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0.25rem 0.5rem;
+        transform: translateY(100px);
+        transition: padding .3s ease-in-out,
+                    background-color .3s ease-in-out,
+                    transform .3s ease-in-out;
+      }
+
+      h1 {
+        font-size: calc(3rem + 1vw);
+        font-weight: 300;
+        margin: 2rem 0 0;
+        text-align: center;
+      }
+
+      h1 span {
+        font-weight: 700;
+      }
+
+      .intro {
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <main>
+      <ul class="Gallery">
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+        <li><h2 class="Gallery/ItemTitle">Title</h2></li>
+      </ul>
+    </main>
+
+  </body>
+</html>

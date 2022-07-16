@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Framed Preview Layout</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body,
+      html {
+        height : 100%;
+        overflow : hidden;
+      }
+
+      .BANNER {
+        height : 60px;
+        left : 0;
+        position : absolute;
+        right : 0;
+        top : 0;
+      }
+
+      .BANNER p {
+        background: hsl(0, 0%, 100%);
+        border: 2px dashed hsla(206, 20%, 67%, 0.5);
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1.6rem;
+        font-weight: bold;
+        line-height: 1;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .FRAME {
+        bottom : 0;
+        left : 0;
+        position : absolute;
+        right : 0;
+        top : 60px;
+      }
+
+      .FRAME iframe {
+        border: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="BANNER">
+      <p>BANNER...</p>
+    </div>
+
+    <div class="FRAME">
+      <iframe src="http://hslpicker.com/"></iframe>
+    </div>
+
+  </body>
+</html>

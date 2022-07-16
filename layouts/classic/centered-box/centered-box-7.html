@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Centered Box Technique #7</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: hsla(206, 20%, 67%, 0.1);
+        text-align: center;
+        width: 100%;
+      }
+
+      @media (min-width: 650px) {
+
+        html {
+          height: 100%;
+        }
+
+        html::before {
+          content: '';
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+        }
+
+      }
+
+      body {
+          overflow-x: hidden;
+      }
+
+      @media (min-width: 650px) {
+
+        body {
+          display: inline-block;
+          vertical-align: middle;
+          max-width: 38rem;
+        }
+
+      }
+
+      .BOX {
+        background: hsl(0, 0%, 100%);
+        border: 2px dashed hsla(206, 20%, 67%, 0.5);
+        width: 100%;
+        padding: 2rem;
+      }
+
+      p {
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="BOX">
+      <p>This technique is similar to <a href="centered-box-4.html">#4</a>, except the ghost pseudo element is applied to the parent &lt;html&gt; element and the centered box is actually the &lt;body&gt; element. Text is center aligned by default. IE9+.</p>
+    </div>
+
+  </body>
+</html>

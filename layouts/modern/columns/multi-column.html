@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Multi Column Layout</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .multi-column {
+
+        /* Firefox */
+        -moz-column-width: 13em;
+        -moz-column-gap: 1em;
+
+        /* WebKit */
+        -webkit-column-width: 13em;
+        -webkit-column-gap: 1em;
+
+        /* Standard */
+        column-width: 13em;
+        column-gap: 1em;
+
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="multi-column">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras maximus tristique justo, vitae varius erat euismod non. Nulla facilisi. In vel ipsum eu lectus convallis mattis. Sed euismod vehicula arcu vitae suscipit. Mauris tristique a ipsum eu auctor. Donec pulvinar lacus at mi dapibus dapibus. Cras pulvinar, leo a tristique ullamcorper, odio leo porttitor libero, in blandit nibh libero in ipsum. Proin dictum a augue at lobortis. Nullam imperdiet ante sit amet diam tristique, in venenatis nisl iaculis. Nunc non finibus lorem, ut efficitur lacus.
+    </div>
+
+  </body>
+</html>

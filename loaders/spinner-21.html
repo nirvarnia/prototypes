@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (21)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 10rem;
+      }
+
+      @keyframes scale {
+        0%, 100% {
+          transform: scaley(1);
+        }
+        50% {
+          transform: scaley(0.4);
+        }
+      }
+
+      .Spinner > span:nth-child(1) {
+        animation: scale 1s 0.1s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+      }
+
+      .Spinner > span:nth-child(2) {
+        animation: scale 1s 0.2s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+      }
+
+      .Spinner > span:nth-child(3) {
+        animation: scale 1s 0.3s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+      }
+
+      .Spinner > span:nth-child(4) {
+        animation: scale 1s 0.4s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+      }
+
+      .Spinner > span:nth-child(5) {
+        animation: scale 1s 0.5s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+      }
+
+      .Spinner > span {
+        animation-fill-mode: both;
+        display: inline-block;
+      }
+
+      .Spinner > span {
+        background-color: hsla(206, 20%, 67%, 1);
+        border-radius: 2px;
+        height: 35px;
+        margin: 2px;
+        width: 4px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="Spinner">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </body>
+</html>

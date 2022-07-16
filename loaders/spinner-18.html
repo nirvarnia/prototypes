@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (18)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 10rem;
+      }
+
+      .Spinner {
+        position: relative;
+      }
+
+      .Spinner > span {
+        animation-fill-mode: both;
+        display: block;
+        position: relative
+      }
+
+      .Spinner > span:first-child {
+        animation: rotate 1s 0s cubic-bezier(0.7, -0.13, 0.22, 0.86) infinite;
+      }
+
+      .Spinner > span,
+      .Spinner > span::after,
+      .Spinner > span::before {
+        background-color: hsla(206, 20%, 67%, 1);
+        border-radius: 100%;
+        height: 15px;
+        margin: 2px;
+        width: 15px;
+      }
+
+      .Spinner > span::after,
+      .Spinner > span::before {
+        content: '';
+        opacity: 0.8;
+        position: absolute;
+      }
+
+      .Spinner > span::before {
+        left: -28px;
+        top: 0;
+      }
+
+      .Spinner > span::after {
+        left: 25px;
+        top: 0;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0) scale(1);
+        }
+        50% {
+          transform: rotate(180deg) scale(0.6);
+        }
+        100% {
+          transform: rotate(360deg) scale(1);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="Spinner">
+      <span></span>
+    </div>
+
+  </body>
+</html>

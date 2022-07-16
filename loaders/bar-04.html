@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Loading Bar (04)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 2rem;
+      }
+
+      .LoadingBar {
+        animation: loadBar 0.5s linear infinite;
+        background-image: repeating-linear-gradient(
+          -45deg,
+          hsl(206, 20%, 67%),
+          hsl(206, 20%, 67%) 11px,
+          hsl(100, 0%, 90%) 10px,
+          hsl(100, 0%, 90%) 20px /* Determines size */
+        );
+        background-size: 28px 28px;
+        border: 1px solid hsl(206, 20%, 67%);
+        border-radius: 3px;
+        height: 20px;
+        width: 100%;
+      }
+
+      @keyframes loadBar {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 28px 0;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="LoadingBar"></div>
+
+  </body>
+</html>

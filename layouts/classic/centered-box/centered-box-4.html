@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Centered Box Technique #4</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: hsla(206, 20%, 67%, 0.1);
+      }
+
+      html,
+      body {
+        height: 100%;
+        min-height: 100%;
+      }
+
+      .BOX_OUTER {
+        height: 100%;
+        min-height: 100%;
+        text-align: center; /* Centers the pseudo element */
+      }
+
+      .BOX_OUTER::before {
+        content: '';
+        display: inline-block;
+        font-size: 0; /* Remove whitespace added by inline-block */
+        height: 100%;
+        vertical-align: middle;
+
+        /* So we can visualise the pseudo element: */
+        background: hsl(0, 0%, 90%);
+        width: 5px;
+      }
+
+      .BOX_INNER {
+
+        /* The centered box can be any height and width. */
+        display: inline-block;
+        vertical-align: middle;
+        width: 300px;
+
+        /* Visual design: */
+        background: hsl(0, 0%, 100%);
+        border: 2px dashed hsla(206, 20%, 67%, 0.5);
+        padding: 2rem;
+      }
+
+      p {
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1rem;
+        line-height: 1.4;
+        text-align: left;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="BOX_OUTER">
+      <div class="BOX_INNER">
+        <p>This centering technique uses a ghost pseudo element, which fills 100% of the height of the document. The pseudo element and the inner box, are vertically-aligned to the middle. The box can be any width, and its height will expand to fit its content. IE9+.</p>
+      </div>
+    </div>
+
+  </body>
+</html>

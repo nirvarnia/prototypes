@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (12)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 2rem;
+      }
+
+      .Spinner {
+        animation: spin 0.8s infinite linear;
+        border: 8px solid hsla(206, 20%, 67%, 1);
+        border-radius: 50%;
+        border-right-color: transparent;
+        height: 28px;
+        margin: 50px;
+        width: 28px;
+      }
+
+      @keyframes spin {
+        0%    {
+          transform: rotate(0deg);
+        }
+        100%  {
+          transform: rotate(360deg);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="Spinner"></div>
+
+  </body>
+</html>

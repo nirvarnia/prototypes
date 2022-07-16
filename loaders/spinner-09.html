@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (09)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 4rem;
+      }
+
+      .CONTAINER {
+        position: relative;
+      }
+
+      .Spinner {
+        animation: spin 0.75s infinite linear;
+        border: 3px solid hsla(206, 20%, 67%, 1);
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-radius: 50%;
+        bottom: 0;
+        height: 20px;
+        left: 0;
+        margin: 0 auto;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-indent: -9999px; /* Accessibly hide the "Loading..." text label */
+        width: 20px;
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="CONTAINER">
+      <div class="Spinner">Loading...</div>
+    </div>
+
+  </body>
+</html>

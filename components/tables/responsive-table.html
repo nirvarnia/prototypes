@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Responsive Table</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* When a table is displayed with block-level formatting,
+      borders and padding must be applied to individual cells. */
+
+      table.responsive {
+        font-size: 1.4rem;
+      }
+
+      table.responsive th {
+        font-weight: bold;
+      }
+
+      table.responsive th, table.responsive td {
+        border: 1px solid;
+        padding: 1em;
+      }
+
+      @media screen and (max-width: 37.5rem) {
+
+        table.responsive {
+          display: block;
+          border: 0;
+          padding: 0;
+        }
+
+        table.responsive thead {
+          display: block;
+
+          /* An accessible way to visual hide the <thead>: */
+
+          position: absolute;
+          top: -9999px;
+          left: -9999px;
+        }
+
+        table.responsive thead tr { display: block; }
+        table.responsive thead th { display: block; }
+        table.responsive tbody    { display: block; }
+        table.responsive tbody tr { display: block; }
+
+        table.responsive tbody tr:nth-child(even) {
+          background: hsla(206, 20%, 67%, 0.1);
+        }
+
+        table.responsive tbody tr td {
+          display: block;
+          min-height: 2rem; /* Required to stop labels scrunching when empty cells */
+          position: relative;
+          border-width: 0 1px 1px 1px;
+          padding: 1rem;
+          padding-left: 40%; /* Space for label (pseudo element) */
+          text-align: left;
+        }
+
+        table.responsive tbody tr:first-child td:first-child {
+          border-top-width: 1px;
+        }
+
+        table.responsive tbody tr td:first-child {
+          font-weight: bold;
+        }
+
+        table.responsive tbody tr td:before {
+          content: attr(data-label) ' ';
+          left: 0;
+          font-weight: bold;
+          padding: 1rem;
+          position: absolute;
+          text-align: right;
+          top: 0;
+          white-space: nowrap;
+          width: 30%;
+        }
+
+        table.responsive tfoot       { display: block; }
+        table.responsive tfoot tr    { display: block; }
+        table.responsive tfoot tr td { display: block; }
+
+      }
+
+      @media print {
+        table.responsive {
+          padding: 6pt;
+        }
+      }
+
+    </style>
+  </head>
+  <body style="padding: 1rem;">
+
+    <!--
+
+    The responsive table widget is mobile-first responsive. On screens
+    narrower than 600px, the table collapses to two columns, with
+    column headers occupying the left column.
+
+    -->
+
+    <table class="responsive">
+      <colgroup>
+        <col /><col /><col /><col />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Manufacturer</th>
+          <th>First release</th>
+          <th>Current version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Name">Internet Explorer</td>
+          <td data-label="Manufacturer">Microsoft</td>
+          <td data-label="First release">1995</td>
+          <td data-label="Current version">11</td>
+        </tr>
+        <tr>
+          <td data-label="Name">Opera</td>
+          <td data-label="Manufacturer">Opera Software</td>
+          <td data-label="First release">1995</td>
+          <td data-label="Current version">30</td>
+        </tr>
+        <tr>
+          <td data-label="Name">Firefox</td>
+          <td data-label="Manufacturer">Mozila</td>
+          <td data-label="First release">2002</td>
+          <td data-label="Current version">39</td>
+        </tr>
+        <tr>
+          <td data-label="Name">Safari</td>
+          <td data-label="Manufacturer">Apple</td>
+          <td data-label="First release">2003</td>
+          <td data-label="Current version">8</td>
+        </tr>
+        <tr>
+          <td data-label="Name">Chrome</td>
+          <td data-label="Manufacturer">Google</td>
+          <td data-label="First release">2008</td>
+          <td data-label="Current version">43</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>

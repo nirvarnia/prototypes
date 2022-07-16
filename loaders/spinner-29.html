@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (29)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 10rem;
+      }
+
+      @keyframes scale {
+        50% {
+          opacity: 0.3;
+          transform: scale(0.4);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .Spinner {
+        position: relative;
+      }
+
+      .Spinner > span:nth-child(1) {
+        animation: scale 1s 0s infinite linear;
+        left: 0;
+        top: 25px;
+      }
+
+      .Spinner > span:nth-child(2) {
+        animation: scale 1s 0.12s infinite linear;
+        left: 17.05px;
+        top: 17.05px;
+      }
+
+      .Spinner > span:nth-child(3) {
+        animation: scale 1s 0.24s infinite linear;
+        left: 25px;
+        top: 0;
+      }
+
+      .Spinner > span:nth-child(4) {
+        animation: scale 1s 0.36s infinite linear;
+        left: 17.05px;
+        top: -17.05px;
+      }
+
+      .Spinner > span:nth-child(5) {
+        animation: scale 1s 0.48s infinite linear;
+        left: 0;
+        top: -25px;
+      }
+
+      .Spinner > span:nth-child(6) {
+        animation: scale 1s 0.6s infinite linear;
+        left: -17.05px;
+        top: -17.05px;
+      }
+
+      .Spinner > span:nth-child(7) {
+        animation: scale 1s 0.72s infinite linear;
+        left: -25px;
+        top: 0;
+      }
+
+      .Spinner > span:nth-child(8) {
+        animation: scale 1s 0.84s infinite linear;
+        left: -17.05px;
+        top: 17.05px;
+      }
+
+      .Spinner > span {
+        animation-fill-mode: both;
+        background-color: hsla(206, 20%, 67%, 1);
+        border-radius: 100%;
+        height: 15px;
+        margin: 2px;
+        position: absolute;
+        width: 15px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="Spinner">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </body>
+</html>

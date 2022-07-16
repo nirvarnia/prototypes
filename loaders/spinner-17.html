@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (17)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 10rem;
+      }
+
+      .Spinner {
+        position: relative;
+      }
+
+      .Spinner > span {
+        animation: rotate 1s 0s ease-in-out infinite;
+        border: 2px solid hsla(206, 20%, 67%, 1);
+        border-bottom-color: transparent;
+        border-radius: 100%;
+        border-top-color: transparent;
+        height: 35px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 35px;
+      }
+
+      .Spinner > span:last-child {
+        animation-direction: reverse;
+        animation-duration: 0.5s;
+        border-color: hsla(206, 20%, 67%, 1) transparent;
+        display: inline-block;
+        height: 15px;
+        left: 10px;
+        top: 10px;
+        width: 15px;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform:
+            rotate(0)
+            scale(1);
+        }
+        50% {
+          transform:
+            rotate(180deg)
+            scale(0.6);
+        }
+        100% {
+          transform:
+            rotate(360deg)
+            scale(1);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="Spinner">
+      <span></span>
+      <span></span>
+    </div>
+
+  </body>
+</html>

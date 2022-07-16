@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Loading Bar (03)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 2rem;
+      }
+
+      .LoadingBar {
+        background-color: hsl(100, 0%, 90%);
+        height: 4px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      .LoadingBar::before{
+        animation: loadBar 2s linear infinite;
+        background-color: hsl(206, 20%, 67%);
+        content: '';
+        display: block;
+        height: 4px;
+        left: -200px;
+        position: absolute;
+        width: 200px;
+      }
+
+      @keyframes loadBar {
+        0% {
+          left: -200px;
+          width: 30%;
+        }
+        50% {
+          width: 30%;
+        }
+        70% {
+          width: 70%;
+        }
+        80% {
+          left: 50%;
+        }
+        95% {
+          left: 120%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="LoadingBar"></div>
+
+  </body>
+</html>

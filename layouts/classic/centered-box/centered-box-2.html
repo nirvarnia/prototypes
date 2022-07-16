@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Centered Box Technqiue #2</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: hsla(206, 20%, 67%, 0.1);
+      }
+
+      .BOX {
+        background: hsl(0, 0%, 100%);
+        border: 2px dashed hsla(206, 20%, 67%, 0.5);
+        box-sizing: border-box;
+        bottom: 0;
+        height: 40%;
+        left: 0;
+        margin: auto;
+        padding: 2rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50%;
+      }
+
+      p {
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="BOX">
+      <p>This box is fluid. It's height and width are a percentage of the height and width of its parent container. But the box cannot scale to fit its inner content. This technique works in all modern browsers, but not IE7-.</p>
+    </div>
+
+  </body>
+</html>

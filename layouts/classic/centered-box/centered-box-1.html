@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Centered Box Technique #1</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: hsla(206, 20%, 67%, 0.1);
+      }
+
+      .BOX {
+        background: hsl(0, 100%, 100%);
+        border: 2px dashed hsla(206, 20%, 67%, 0.5);
+        box-sizing: border-box;
+        height: 220px;
+        left: 50%;
+        margin: 0;
+        margin-left: -200px; /* Half width */
+        margin-top: -110px !important; /* Half height */
+        overflow: visible;
+        padding: 2rem;
+        position: absolute;
+        text-align: left;
+        top: 50%;
+        width: 400px;
+      }
+
+      p {
+        background: hsl(0, 0%, 100%);
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="BOX">
+      <p>This centering technique depends on absolute positioning and negative margins. It works in all browsers, but it does require that the centered box be given a fixed height.</p>
+    </div>
+
+  </body>
+</html>

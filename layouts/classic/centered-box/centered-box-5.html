@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Centered Box Technique #5</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: hsla(206, 20%, 67%, 0.1);
+      }
+
+      html,
+      body {
+        height: 100%;
+        min-height: 100%;
+      }
+
+      /*
+
+      This technique can cause elements to appear blurred due them being
+      placed on half pixels. If this is a problem, set the parent element
+      to preserve-3d, like this:
+
+      .parent {
+          -webkit-transform-style: preserve-3d;
+              -moz-transform-style: preserve-3d;
+                  transform-style: preserve-3d;
+      }
+
+      */
+
+      .BOX {
+        background: hsl(0, 0%, 100%);
+        border: 2px dashed hsla(206, 20%, 67%, 0.5);
+        padding: 2rem;
+        position: relative;
+
+        /* Vertical centering: */
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+      }
+
+      p {
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="BOX">
+      <p>This centering technique uses CSS 3D transforms. IE9+.</p>
+    </div>
+
+  </body>
+</html>

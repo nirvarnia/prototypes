@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Centered Box Technique #6</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: hsla(206, 20%, 67%, 0.1);
+      }
+
+      .CONTAINER {
+
+        /* Flexbox 2009 standard, implemented in legacy editions of
+        Firefox and various Webkit-based browsers including Android <= 4.3,
+        Safari <= 6, Safari for iOS <= 6.1, and Blackberry Browser 7. */
+
+        display: -webkit-box;
+        display:    -moz-box;
+
+        /* Flexbox 2012 standard, supported by IE10 and IE Mobile 10
+        with the -ms- prefix: */
+
+        display: -ms-flexbox;
+
+        /* Flexbox current standard. -webkit- prefix required for Safari >= 6.1,
+        Safari for iOS >= 7.1, and Blackberry Browser 10. */
+
+        display: -webkit-flex;
+        display:         flex;
+
+        /* 2009 flexbox specification - align children to the horizontal
+        center of this box: */
+
+        -webkit-box-align: center;
+            -moz-box-align: center;
+                box-align: center;
+
+        /* Current flexbox specification - align children to the horizontal
+        centre of this box: */
+
+        -webkit-justify-content: center;
+            -moz-justify-content: center;
+            -ms-justify-content: center;
+                justify-content: center;
+
+        /* Current flexbox specification - align children to the vertical centre
+        of thos box: */
+
+        -webkit-align-items: center;
+            -moz-align-items: center;
+            -ms-align-items: center;
+                align-items: center;
+
+        /* 100% height of the viewport: */
+
+        height: 100vh;
+
+      }
+
+      .BOX {
+        background: hsl(0, 0%, 100%);
+        border: 2px dashed hsla(206, 20%, 67%, 0.5);
+        max-width: 600px;
+        padding: 2rem;
+      }
+
+      p {
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="CONTAINER">
+      <div class="BOX">
+        <p>This technique combines flexbox layout with viewport units. A parent element fill the full height and width of the viewport, while a child box is positioned in the dead centre of it. IE10+.</p>
+      </div>
+    </div>
+
+  </body>
+</html>

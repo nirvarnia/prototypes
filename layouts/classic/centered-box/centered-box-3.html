@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Centered Box Technique #3</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: hsla(206, 20%, 67%, 0.1);
+      }
+
+      html,
+      body {
+        height: 100%;
+        min-height: 100%;
+      }
+
+      .BOX_OUTER {
+        display: table;
+        height: 100%;
+        margin: 0 auto;
+        min-height: 100%;
+      }
+
+      .BOX_INNER {
+        background: hsl(0, 0%, 100%);
+        border: 2px dashed hsla(206, 20%, 67%, 0.5);
+        display: table-cell;
+        padding: 2rem;
+        vertical-align: middle;
+      }
+
+      p {
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="BOX_OUTER">
+      <div class="BOX_INNER">
+        <p>This technique has a box fill the full height and width of the document, with content vertically centered. IE8+.</p>
+      </div>
+    </div>
+
+  </body>
+</html>

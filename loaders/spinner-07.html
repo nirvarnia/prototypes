@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (07)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 4rem;
+      }
+
+      .Spinner {
+        height: 100px;
+        position: relative;
+        width: 100px;
+      }
+
+      .Spinner::before,
+      .Spinner::after {
+        border-radius: 25px;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 50px;
+        margin: auto 0;
+        position: absolute;
+        top: 0;
+        width: 50px;
+      }
+
+      .Spinner::before {
+        animation: spinLeftBall 0.5s infinite ease;
+        background-color: hsla(206, 20%, 67%, 1);
+        left: 0;
+      }
+
+      .Spinner::after {
+        animation: spinRightBall 0.5s infinite ease;
+        background-color: hsla(206, 20%, 67%, 0.5);
+        right: 0;
+      }
+
+      @keyframes spinLeftBall {
+        0% {
+          transform: scale(0.5);
+        }
+        50% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0.5);
+        }
+      }
+
+      @keyframes spinRightBall {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(0.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="Spinner"></div>
+
+  </body>
+</html>

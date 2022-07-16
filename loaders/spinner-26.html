@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (26)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 10rem;
+      }
+
+      @keyframes scale {
+        0% {
+          opacity: 1;
+          transform: scale(0.1);
+        }
+        70% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0
+        }
+      }
+
+      .Spinner > span {
+        animation: scale 1s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
+        border: 2px solid hsla(206, 20%, 67%, 1);
+        border-radius: 100%;
+        display: block;
+        height: 50px;
+        width: 50px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="Spinner">
+      <span></span>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fade-Out Inactive Menu Links</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        transition: opacity 1s ease;
+      }
+
+      ul:hover a {
+	      opacity: 0.2;
+      }
+
+      ul:hover a:hover {
+	      opacity: 1;
+      }
+
+    </style>
+  </head>
+  <body style="padding: 1rem;">
+
+    <h1>Fade-Out Inactive Menu Links</h1>
+
+    <p>Hover over a menu link and watch the <i>other</i> items in the menu fade-out slightly.</p>
+
+    <ul>
+      <li><a href="#">Link One</a></li>
+      <li><a href="#">Link Two</a></li>
+      <li><a href="#">Link Three</a></li>
+      <li><a href="#">Link Four</a></li>
+      <li><a href="#">Link Five</a></li>
+      <li><a href="#">Link Six</a></li>
+      <li><a href="#">Link Seven</a></li>
+    </ul>
+
+  </body>
+</html>

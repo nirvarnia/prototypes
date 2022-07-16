@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Off-Canvas Navigation Slide-Right</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* BASELINE EXPERIENCE */
+
+      body {
+        font-family: sans-serif;
+      }
+
+      a {
+        color: hsl(203, 71%, 47%);
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .CANVAS a:focus {
+        outline: 1px dotted black;
+      }
+
+      .BANNER {
+        background: hsl(206, 20%, 67%);
+        color: hsl(0, 0%, 100%);
+        padding: 1.5rem 2.5rem;
+        position: relative;
+      }
+
+      .BANNER h1 {
+        font-size: 3.2rem;
+        font-weight: bold;
+        line-height: 1.2em;
+        padding: 0 4rem;
+        text-align: center;
+      }
+
+      .BANNER a.banner-hamburger {
+        display: block;
+        left: 2.5rem;
+        position: absolute;
+        top: 1.5rem;
+      }
+
+      .BANNER a.banner-hamburger:focus {
+        outline: 2px solid hsla(0, 0%, 100%, 0.25);
+        outline-offset: 2px;
+      }
+
+      .BANNER a.banner-hamburger svg {
+        fill: hsla(0, 0%, 100%, 0.5);
+        transition: fill 100ms ease-out;
+      }
+
+      .BANNER a.banner-hamburger:hover svg,
+      .BANNER a.banner-hamburger:focus svg {
+        fill: hsla(0, 0%, 100%, 0.75);
+      }
+
+      @media screen and (min-width: 56.25rem) {
+        .BANNER a.banner-hamburger {
+          display: none;
+        }
+      }
+
+      .NAVIGATION_TOP {
+        display: none;
+      }
+
+      @media screen and (min-width: 56.25rem) {
+
+        .NAVIGATION_TOP {
+          background: hsl(206, 20%, 67%);
+          display: block;
+          padding: 0 2.5rem;
+        }
+
+        .NAVIGATION_TOP ul {
+          font-size: 1.6rem;
+          line-height: 1;
+          text-align: center;
+        }
+
+        .NAVIGATION_TOP li {
+          display: inline-block;
+          position: relative;
+        }
+
+        .NAVIGATION_TOP a {
+          background: transparent;
+          color: hsl(0, 0%, 100%);
+          display: block;
+          padding: 1.25rem 2.5rem;
+          transition: background-color 100ms ease-out;
+        }
+
+        .NAVIGATION_TOP a:hover,
+        .NAVIGATION_TOP a:focus {
+          background: hsla(0, 0%, 100%, 0.1);
+        }
+
+        .NAVIGATION_TOP li.navigation-selected a::after {
+          /* Bottom arrow: */
+          border-top: 0;
+          border-right: 0.5em solid transparent;
+          border-bottom: 0.5em solid hsl(0, 0%, 100%);
+          border-left: 0.5em solid transparent;
+          bottom: 0;
+          content: "";
+          display: block;
+          left: 50%;
+          margin: 0 0 0 -0.5em;
+          position: absolute;
+        }
+
+      }
+
+      .MAIN {
+        background: hsl(0, 0%, 100%);
+        padding: 2.5rem;
+      }
+
+      .MAIN p {
+        font-size: 1.6rem;
+        line-height: 1.5em;
+        margin-bottom: 1.5em;
+      }
+
+      .NAVIGATION_BOTTOM {
+        background: hsl(206, 20%, 67%);
+      }
+
+      @media screen and (min-width: 56.25rem) {
+        .NAVIGATION_BOTTOM {
+          display: none;
+        }
+      }
+
+      .NAVIGATION_BOTTOM ul {
+        font-size: 1.6rem;
+        line-height: 1;
+      }
+
+      .NAVIGATION_BOTTOM li {
+        border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+        position: relative;
+      }
+
+      .NAVIGATION_BOTTOM li:last-child {
+        border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+      }
+
+      .NAVIGATION_BOTTOM a {
+        background: transparent;
+        color: hsl(0, 0%, 100%);
+        display: block;
+        padding: 1.25rem 2.5rem;
+        transition: background-color 100ms ease-out;
+      }
+
+      .NAVIGATION_BOTTOM a:hover,
+      .NAVIGATION_BOTTOM a:focus {
+        background: hsla(0, 0%, 100%, 0.1);
+      }
+
+      .NAVIGATION_BOTTOM li.navigation-selected a::after {
+        /* Left arrow: */
+        border-top: 0.5em solid transparent;
+        border-right: 0;
+        border-bottom: 0.5em solid transparent;
+        border-left: 0.5em solid hsl(0, 0%, 100%);
+        content: "";
+        display: block;
+        left: 0;
+        margin: -0.5em 0 0 0;
+        position: absolute;
+        top: 50%;
+      }
+
+      .FOOTER {
+        background: hsl(206, 20%, 67%);
+        padding: 5rem 2.5rem;
+      }
+
+      .FOOTER p {
+        color: hsl(0, 0%, 100%);
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+
+      /* ENHANCED EXPERIENCE */
+
+      @keyframes fadeIn {
+        0%   {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      html.sidepanel-is-enabled,
+      html.sidepanel-is-enabled body {
+        height: 100%;
+      }
+
+      /* Body scrolling is on the CANVAS element... */
+      html.sidepanel-is-enabled body {
+        overflow: hidden;
+      }
+
+      html.sidepanel-is-enabled .CONTAINER_OUTER {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+      }
+
+      html.sidepanel-is-enabled .CONTAINER_INNER {
+        height: 100%;
+        position: relative;
+        transition: transform 0.5s cubic-bezier(0.16, 0.68, 0.43, 0.99) 0s;
+      }
+
+      html.sidepanel-is-enabled.sidepanel-is-showing .CONTAINER_INNER {
+        transform: translateX(20rem);
+      }
+
+      .SIDEPANEL_BACKDROP {
+        display: none;
+      }
+
+      .SIDEPANEL {
+        display: none;
+      }
+
+      html.sidepanel-is-enabled.sidepanel-is-showing .SIDEPANEL_BACKDROP {
+        animation: fadeIn 0.5s;
+        background: hsla(0, 0%, 0%, 0.5);
+        bottom: 0;
+        display: block;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 100;
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL {
+        background: hsl(206, 20%, 67%);
+        border-right: 2px solid hsl(0, 0%, 100%);
+        box-shadow: -1rem 0 1rem -0.75rem hsla(0, 0%, 0%, 0.25) inset;
+        box-sizing: border-box;
+        display: block;
+        height: 100%;
+        left: -20rem;
+        overflow: hidden;
+        padding: 1.5rem 0;
+        position: absolute;
+        top: 0;
+        width: 20rem;
+        z-index: 101;
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL button.sidepanel-close {
+        background: transparent;
+        display: block;
+        margin: 0 2.5rem 1.5rem;
+        width: auto;
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL button.sidepanel-close:focus {
+        outline: 2px solid hsla(0, 0%, 100%, 0.25);
+        outline-offset: 2px;
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL button.sidepanel-close svg {
+        fill: hsla(0, 0%, 100%, 0.5);
+        transition: fill 100ms ease-out;
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL button.sidepanel-close:hover svg,
+      html.sidepanel-is-enabled .SIDEPANEL button.sidepanel-close:focus svg {
+        fill: hsla(0, 0%, 100%, 0.75);
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL ul {
+        font-size: 1.6rem;
+        line-height: 1;
+        transition: transform 0.5s cubic-bezier(0.16, 0.68, 0.43, 0.99) 0.2s;
+        transform: scale3d(1, 0.9, 0.9);
+      }
+
+      html.sidepanel-is-enabled.sidepanel-is-showing .SIDEPANEL ul {
+        transform: scale3d(1, 1, 1);
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL li {
+        border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+        position: relative;
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL li:last-child {
+        border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL a {
+        background: transparent;
+        color: hsl(0, 0%, 100%);
+        display: block;
+        padding: 1.25rem 2.5rem;
+        transition: background-color 100ms ease-out;
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL a:hover,
+      html.sidepanel-is-enabled .SIDEPANEL a:focus {
+        background: hsla(0, 0%, 100%, 0.1);
+      }
+
+      html.sidepanel-is-enabled .SIDEPANEL li.sidepanel-selected a::after {
+        /* Right arrow: */
+        border-top: 0.5em solid transparent;
+        border-right: 0.5em solid hsl(0, 0%, 100%);
+        border-bottom: 0.5em solid transparent;
+        border-left: 0;
+        content: "";
+        display: block;
+        margin: -0.5em 0 0 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+
+      html.sidepanel-is-enabled .CANVAS {
+        height: 100%;
+        overflow-y: scroll; /* Substitute for body scrollbar */
+        position: relative;
+      }
+
+      html.sidepanel-is-enabled .NAVIGATION_BOTTOM {
+        display: none;
+      }
+
+    </style>
+    <script src="scripts/SidePanel.js" defer></script>
+  </head>
+  <body>
+
+    <div class="CONTAINER_OUTER">
+      <div class="CONTAINER_INNER">
+
+        <script type="text/template" id="template-sidepanel">
+          <div class="SIDEPANEL_BACKDROP"></div>
+          <div class="SIDEPANEL" id="sidepanel">
+            <button class="sidepanel-close" data-sidepanel-toggle='{"prevent_default": true}' type="button"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><title>Close the side panel</title><path d="M6.443,35L5,33.555L33.557,5L35,6.446L6.443,35"/><path d="M33.557,35L5,6.446L6.443,5L35,33.555L33.557,35"/></svg></button>
+            <ul>
+              <li class="sidepanel-selected"><a data-sidepanel-toggle='{"prevent_default": false}' href="#one">One</a></li>
+              <li><a data-sidepanel-toggle='{"prevent_default": false}' href="#two">Two</a></li>
+              <li><a data-sidepanel-toggle='{"prevent_default": false}' href="#three">Three</a></li>
+              <li><a data-sidepanel-toggle='{"prevent_default": false}' href="#four">Four</a></li>
+              <li><a data-sidepanel-toggle='{"prevent_default": false}' href="#five">Five</a></li>
+            </ul>
+          </div>
+        </script>
+
+        <div class="CANVAS" id="canvas">
+
+          <header class="BANNER">
+            <h1>Title</h1>
+            <a class="banner-hamburger" data-sidepanel-toggle='{"prevent_default": true}' href="#navigation"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><title>Skip to the menu</title><path d="M5,8h30v4H5V8z"/><path d="M5,18h30v4H5V18z"/><path d="M5,27.998h30v4H5V27.998z"/></svg></a>
+          </header>
+
+          <nav class="NAVIGATION_TOP">
+            <ul>
+              <li class="navigation-selected"><a href="#one">One</a></li>
+              <li><a href="#two">Two</a></li>
+              <li><a href="#three">Three</a></li>
+              <li><a href="#four">Four</a></li>
+              <li><a href="#five">Five</a></li>
+            </ul>
+          </nav>
+
+          <main class="MAIN">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempor quis erat quis volutpat. Praesent ut iaculis orci, sed mattis arcu. Pellentesque ut dui urna. Donec tempus scelerisque cursus. Vivamus pretium in mi at sagittis. In eget nunc eleifend, viverra ante nec, facilisis odio. In libero sapien, varius id tristique in, finibus in ante. Aliquam imperdiet fermentum magna id viverra.</p>
+
+            <p><a data-sidepanel-toggle='{"prevent_default": "true"}' href="#">Click here! It's another toggle switch for the side-panel.</a></p>
+
+            <p>Fusce ac blandit ligula. Maecenas ante ligula, rutrum a aliquet vitae, vestibulum id ipsum. Nunc magna lorem, tincidunt ut fermentum ut, volutpat volutpat odio. Morbi at est diam. Duis hendrerit lorem nisi, id laoreet arcu blandit sit amet. Sed facilisis volutpat quam ac aliquet. Sed in faucibus nunc, nec pharetra nunc. Suspendisse bibendum dictum nulla. Nullam eu rhoncus ex. Morbi tempor orci tellus, eget pretium lorem ultrices sed. Vivamus venenatis leo ut velit dignissim, et posuere mauris mollis. Vestibulum elementum rutrum nunc id pellentesque.</p>
+
+            <p>Nulla facilisis interdum nulla, hendrerit bibendum quam semper vel. Donec massa lacus, vulputate sit amet interdum in, condimentum et sem. Morbi egestas mauris vel elit luctus, sit amet faucibus arcu ultrices. Sed tristique sollicitudin mauris id ullamcorper. Sed malesuada aliquam odio ut blandit. Nullam sollicitudin augue eget dolor tristique maximus. Sed ullamcorper varius sollicitudin. Cras aliquet nibh eget sapien egestas, nec iaculis nunc hendrerit. Pellentesque facilisis turpis massa, maximus blandit dolor scelerisque hendrerit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis nec ante eget arcu commodo volutpat a nec ligula. Integer sollicitudin consequat auctor. Duis convallis dolor quis justo luctus suscipit.</p>
+
+            <p>Etiam congue turpis at condimentum venenatis. Nunc pellentesque fringilla purus, ut viverra lacus commodo vel. Curabitur varius dignissim auctor. Etiam varius pulvinar magna ac hendrerit. Donec ultrices eros sit amet euismod consectetur. Nulla porttitor purus massa, eget pretium ipsum dictum non. Cras consequat odio in consequat maximus. Phasellus eleifend consequat dui, eu placerat dui efficitur et. Fusce nec nisl eleifend, pulvinar elit quis, consequat ipsum. Pellentesque ut interdum lorem. Praesent laoreet erat non erat dictum consectetur id nec augue. Maecenas fringilla nunc eget tellus tempus blandit. Fusce sodales lacus a suscipit tempus. Suspendisse elementum diam vitae malesuada posuere.</p>
+
+            <p>Maecenas bibendum mi in tempor posuere. Pellentesque in faucibus tellus. Praesent sagittis vulputate velit. In eu lorem eu nisl aliquam semper sed a justo. Nulla mattis mattis augue, eget vulputate ante blandit laoreet. Nam id erat placerat, auctor sem ut, tristique quam. Etiam elementum, ligula eget sodales convallis, mauris dolor ultricies ex, ac rhoncus odio ante sed quam.</p>
+
+            <p>Praesent vitae vehicula est. Integer vehicula vehicula nulla ac aliquam. Nam id neque libero. Phasellus venenatis, enim a laoreet luctus, nunc est congue ipsum, in viverra enim lacus vitae augue. Nullam egestas elit magna, hendrerit egestas orci pellentesque mollis. Integer eu ipsum rhoncus, fringilla quam in, faucibus dui. Nulla dignissim nisl efficitur, accumsan est ac, iaculis neque. Aenean convallis condimentum interdum.</p>
+
+            <p>Proin efficitur ornare augue eget tempus. Duis vel metus at nisi scelerisque vehicula eu et dolor. Quisque a commodo justo. Vestibulum id hendrerit massa, sit amet eleifend mauris. Quisque viverra posuere viverra. Sed at ligula eu nunc euismod facilisis. Nullam porttitor placerat dictum. Vivamus efficitur nulla non diam varius dictum. Nulla sed scelerisque sem. Proin tincidunt in ante vitae tempus. Aenean id leo eu magna malesuada venenatis. Ut fermentum quam odio, vitae commodo libero laoreet quis. Proin fermentum porta dolor ut tristique. Donec in sem orci.</p>
+
+            <p>Fusce ante eros, condimentum non finibus vitae, gravida quis sapien. Cras ullamcorper felis sit amet eros finibus, a luctus arcu dapibus. Quisque eu urna in mauris aliquet maximus sit amet eget ligula. Morbi vestibulum diam vel nulla mattis molestie. Praesent id lorem elit. Donec vestibulum vulputate sollicitudin. Aenean vitae libero tellus. Nam hendrerit ipsum leo, ut rutrum diam consectetur sit amet. Ut mi tortor, congue malesuada mi quis, suscipit lacinia mi. Cras nisl justo, sodales quis mauris quis, semper pulvinar ligula. Suspendisse nec mauris lobortis, interdum neque ut, tristique eros. Suspendisse nisl nisi, hendrerit ut velit ullamcorper, cursus finibus ipsum. Nullam egestas, velit in commodo suscipit, metus sem consectetur ex, sodales porta velit erat eleifend urna.</p>
+
+            <p>Nam id fermentum lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin volutpat, quam sit amet varius scelerisque, mi mauris sollicitudin tortor, in aliquet arcu leo sed nisl. Vivamus pretium nisi in lobortis ullamcorper. Praesent rhoncus ante justo, in sollicitudin arcu pellentesque ac. Suspendisse porta velit est, nec ultricies magna finibus vehicula. Sed eu nunc id velit porta convallis sed quis enim. Ut elementum sed orci vel porta. Donec cursus congue commodo. Donec ut condimentum erat. Quisque sed nunc nibh. Integer lacinia elementum elementum. In at augue est.</p>
+
+            <p>Pellentesque posuere ultricies nibh, sit amet aliquet augue placerat vitae. Morbi convallis risus at erat suscipit pharetra. Integer volutpat mauris sit amet lectus faucibus, at rhoncus justo molestie. Sed ornare, quam eu ultrices lobortis, arcu magna pretium justo, sit amet dapibus turpis orci nec magna. Nullam finibus nibh eu nibh aliquam cursus. Nunc et lorem eu nunc rhoncus feugiat. Nulla metus tellus, blandit ac augue nec, lobortis suscipit sem. Proin ac nibh eget metus interdum euismod eu vel metus. Donec sodales efficitur scelerisque. Nunc interdum condimentum suscipit. Nulla placerat nisl turpis, sit amet ultricies nunc efficitur at. Proin imperdiet, eros nec molestie semper, nunc velit tristique arcu, a hendrerit nibh augue eget nunc. Nulla sit amet laoreet sapien. Phasellus pellentesque neque id sem suscipit aliquet. In at mattis orci, quis varius lacus. Donec vitae risus eleifend, suscipit justo consequat, auctor risus.</p>
+
+          </main>
+
+          <nav class="NAVIGATION_BOTTOM" id="navigation">
+            <ul>
+              <li class="navigation-selected"><a href="#home">Home</a></li>
+              <li><a href="#one">One</a></li>
+              <li><a href="#two">Two</a></li>
+              <li><a href="#three">Three</a></li>
+              <li><a href="#four">Four</a></li>
+              <li><a href="#five">Five</a></li>
+            </ul>
+          </nav>
+
+          <footer class="FOOTER">
+            <p>Footnotes...</p>
+          </footer>
+
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

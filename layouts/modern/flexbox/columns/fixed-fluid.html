@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>2-Column Fixed|Fluid Layout with flexbox</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: hsla(206, 20%, 67%, 0.1);
+      }
+
+      .CONTAINER {
+        display: flex;
+        margin: 0 auto;
+        padding: 4rem;
+      }
+
+      .FLUID {
+        flex: 1;
+      }
+
+      .FIXED {
+        width: 400px;
+      }
+
+      p {
+        background: hsl(0, 0%, 100%);
+        border: 2px dashed hsla(206, 20%, 67%, 0.5);
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1.6rem;
+        font-weight: bold;
+        line-height: 1;
+        margin: 1rem;
+        padding: 2rem;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="CONTAINER">
+      <div class="FIXED">
+        <p>FIXED</p>
+      </div>
+      <div class="FLUID">
+        <p>FLUID</p>
+      </div>
+    </div>
+
+  </body>
+</html>

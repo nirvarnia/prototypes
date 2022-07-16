@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Full-bleed images using Grid</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      /* Reset */
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Three columns. The first and last columns are flexible, filling
+      the available space. The middle column is 100% width up to a maximum
+      (including the grid gaps/gutters) up to maximum of about 65 characters. */
+
+      .WRAPPER {
+        display: grid;
+        grid-template-columns:
+          1fr
+          min(65ch, calc(100% - 64px))
+          1fr;
+        grid-column-gap: 32px;
+      }
+
+      /* By default, put all children in the second (middle) grid cell. */
+
+      .WRAPPER > * {
+        grid-column: 2;
+      }
+
+      /* Full-bleed components to be 100% wide, spanning all columns.
+      The 1 / -1 value means "start on the first vertical grid line, end
+      on the last one". In a three-grid layout, this is equivalent to
+      1 / 4. */
+
+      .FULL_BLEED {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main class="WRAPPER">
+
+      <h1>Full-bleed images using Grid</h1>
+
+      <p>This is a single fixed-width column layout with selected images breaking out
+      of the column and scaling to the full width of the screen ("full-bleed").</p>
+
+      <p>This implementation uses the native CSS Grid system.</p>
+
+      <hr />
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec accumsan nibh. Duis nisl justo, placerat id urna in, maximus egestas nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam lectus odio, placerat eu lobortis sed, commodo non nisi. Fusce in lacus non risus feugiat tristique. Aliquam eu sem vel augue faucibus tempor quis nec enim. Etiam sed dolor metus. Integer vulputate erat a nulla tempor, nec consectetur ligula volutpat. Pellentesque non congue sapien. Maecenas vitae laoreet lacus. Donec eu interdum ante. Fusce pellentesque auctor nisi, sit amet feugiat nunc. Sed congue orci sed libero blandit egestas. </p>
+
+      <p>Suspendisse id ligula quis urna tempus convallis sed in sem. Nam nec lectus odio. Duis facilisis fermentum turpis. Donec pulvinar libero eget diam feugiat, id pretium augue venenatis. Fusce tempus sem convallis eros egestas ultrices. Maecenas aliquet pulvinar sodales. Morbi faucibus tellus vitae dui vestibulum egestas. Quisque sollicitudin pretium nibh. </p>
+
+      <img class="FULL_BLEED" alt="A cute meerkat" src="./img/raphael-andres-Ym7NVRKgmJc-unsplash.jpg" />
+
+      <p>Sed eu est ultrices, semper felis aliquet, placerat massa. Sed nec imperdiet odio. Praesent vel nisi quis lacus eleifend tincidunt. Vivamus blandit nisl ac elit dictum, sit amet malesuada enim dapibus. Nulla nulla massa, elementum at cursus at, consectetur sed leo. Morbi ex odio, aliquam non ipsum vitae, ultricies porttitor turpis. Curabitur commodo in magna nec lacinia. Maecenas eu dui ut diam suscipit scelerisque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur fermentum eros felis, eget egestas dui porta ut. Donec orci nunc, vulputate ac finibus sit amet, pellentesque vitae tellus. Sed venenatis auctor lorem condimentum gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+
+    </main>
+  </body>
+</html>

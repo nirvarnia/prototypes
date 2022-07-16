@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sticky Footer Layout</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: hsla(206, 20%, 67%, 0.1);
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      .CONTAINER {
+        margin-bottom: -100px; /* Footer height */
+        min-height: 100%;
+      }
+
+      .CLEAR_FOOTER {
+        clear: both;
+        height: 100px; /* Footer height */
+      }
+
+      .FOOTER {
+        background: hsl(0, 0%, 100%);
+        border-top: 2px dashed hsla(206, 20%, 67%, 0.5);
+        height: 98px;
+        overflow-y: hidden;
+      }
+
+      p {
+        color: hsl(206, 20%, 67%);
+        font-family:
+          'Bitstream Vera Sans Mono',
+          'Lucida Console',
+          'Lucida Sans Typewriter',
+            monospace;
+        font-size: 1.2rem;
+        font-weight: normal;
+        line-height: 1;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="CONTAINER">
+      <p>Main page content</p>
+      <div class="CLEAR_FOOTER"></div>
+    </div>
+
+    <div class="FOOTER">
+      <p>Footer content (fixed height)</p>
+    </div>
+
+  </body>
+</html>

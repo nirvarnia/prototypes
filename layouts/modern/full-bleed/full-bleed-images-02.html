@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Full-bleed images using viewport units</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      /* Reset */
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* This technique doesn't naturally cause horizontal overflow, but once there is natural vertical overflow, it causes horizontal overflow, which needs to be kept hidden. */
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .WRAPPER {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 64ch;
+        padding: 0 32px;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .FULL_BLEED {
+        left: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        position: relative;
+        right: 50%;
+        width: 100vw;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main class="WRAPPER">
+
+      <h1>Full-bleed images using viewport units</h1>
+
+      <p></p>This is an alternative implementation of a single fixed-width column layout, where selected images break out of the column and scale to the full width of the screen ("full-bleed").</p>
+
+      <p>This methodology does not rely on Grid or Flexbox, but only viewport units.</p>
+
+      <hr />
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec accumsan nibh. Duis nisl justo, placerat id urna in, maximus egestas nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam lectus odio, placerat eu lobortis sed, commodo non nisi. Fusce in lacus non risus feugiat tristique. Aliquam eu sem vel augue faucibus tempor quis nec enim. Etiam sed dolor metus. Integer vulputate erat a nulla tempor, nec consectetur ligula volutpat. Pellentesque non congue sapien. Maecenas vitae laoreet lacus. Donec eu interdum ante. Fusce pellentesque auctor nisi, sit amet feugiat nunc. Sed congue orci sed libero blandit egestas. </p>
+
+      <p>Suspendisse id ligula quis urna tempus convallis sed in sem. Nam nec lectus odio. Duis facilisis fermentum turpis. Donec pulvinar libero eget diam feugiat, id pretium augue venenatis. Fusce tempus sem convallis eros egestas ultrices. Maecenas aliquet pulvinar sodales. Morbi faucibus tellus vitae dui vestibulum egestas. Quisque sollicitudin pretium nibh. </p>
+
+      <figure class="FULL_BLEED">
+        <img alt="A cute meerkat" src="./img/raphael-andres-Ym7NVRKgmJc-unsplash.jpg" />
+      </figure>
+
+      <p>Sed eu est ultrices, semper felis aliquet, placerat massa. Sed nec imperdiet odio. Praesent vel nisi quis lacus eleifend tincidunt. Vivamus blandit nisl ac elit dictum, sit amet malesuada enim dapibus. Nulla nulla massa, elementum at cursus at, consectetur sed leo. Morbi ex odio, aliquam non ipsum vitae, ultricies porttitor turpis. Curabitur commodo in magna nec lacinia. Maecenas eu dui ut diam suscipit scelerisque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur fermentum eros felis, eget egestas dui porta ut. Donec orci nunc, vulputate ac finibus sit amet, pellentesque vitae tellus. Sed venenatis auctor lorem condimentum gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spinner (03)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 4rem;
+      }
+
+      .Spinner {
+        animation: spin 1.1s infinite linear;
+        border-bottom: 1em solid hsla(206, 20%, 67%, 0.2);
+        border-left: 1em solid hsl(206, 20%, 67%);
+        border-radius: 50%;
+        border-right: 1em solid hsla(206, 20%, 67%, 0.2);
+        border-top: 1em solid hsla(206, 20%, 67%, 0.2);
+        font-size: 10px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        text-indent: -9999px; /* Accessibly hide the "Loading..." text label */
+        transform: translateZ(0);
+      }
+
+      .Spinner,
+      .Spinner::after {
+        border-radius: 50%;
+        height: 6em;
+        width: 6em; /* Adjust dimensions of icon relate to 10px font size */
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="Spinner">Loading...</div>
+
+  </body>
+</html>

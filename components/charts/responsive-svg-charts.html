@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Responsive SVG Charts</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+      }
+
+      div {
+        width: 50%;
+        height: 50%;
+        position: relative;
+        margin: auto;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        border: 0 solid #000;
+        border-width: 0 0 .1rem .1rem;
+      }
+
+      polyline {
+        fill: none;
+      }
+
+      svg * {
+        vector-effect: non-scaling-stroke;
+      }
+
+      th,
+      td {
+        position: absolute;
+        display: block;
+      }
+
+      th:first-child {
+        left: calc(100% + 0.5em);
+        top: 100%;
+        transform: translate(0, -50%);
+      }
+
+      th:last-child {
+        bottom: calc(100% + 0.5em);
+        transform: translate(-50%, 0);
+      }
+
+      td:first-child {
+        top: calc(100% + 0.5em);
+        transform: translate(-50%,0);
+      }
+
+      td:last-child {
+        left: -0.5em;
+        transform: translate(-100%,-50%);
+      }
+
+      td:not([style]) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        clip-path: inset(100%);
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+      }
+
+    </style>
+  </head>
+  <body style="padding: 2rem;">
+
+    <!-- Source: https://codepen.io/mgrsskls/pen/abzgXLX -->
+    <!-- Reference: https://dev.to/richharris/a-new-technique-for-making-responsive-javascript-free-charts-gmp -->
+
+    <div>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polyline points="0,100 10,99 20,96 30,91 40,84 50,75 60,64 70,51 80,36 90,19 100,0" class="svelte-1qo8nb1" style="stroke: red; stroke-width: 2;"></polyline>
+      </svg>
+
+      <table>
+        <thead>
+          <th>x</th>
+          <th>y</th>
+        </thead>
+        <tr>
+          <td style="left: 0">0</td>
+          <td style="top: 100%">0</td>
+        </tr>
+        <tr>
+          <td style="left: 20%">2</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td style="left: 40%">4</td>
+          <td>40</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td style="top: 50%">50</td>
+        </tr>
+        <tr>
+          <td style="left: 60%">6</td>
+          <td>60</td>
+        </tr>
+        <tr>
+          <td style="left: 80%">8</td>
+          <td>80</td>
+        </tr>
+        <tr>
+          <td style="left: 100%">10</td>
+          <td style="top: 0%">100</td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      ;(function(){
+
+        const data = [
+          { x: 0,  y: 0 },
+          { x: 1,  y: 1 },
+          { x: 2,  y: 4 },
+          { x: 3,  y: 9 },
+          { x: 4,  y: 16 },
+          { x: 5,  y: 25 },
+          { x: 6,  y: 36 },
+          { x: 7,  y: 49 },
+          { x: 8,  y: 64 },
+          { x: 9,  y: 81 },
+          { x: 10, y: 100 }
+        ];
+
+        function scale(domain, range) {
+          const m = (range[1] - range[0]) / (domain[1] - domain[0]);
+          return num => range[0] + m * (num - domain[0]);
+        }
+
+        const x = scale([0, Math.max(...data.map(d => d.x))], [0, 100]);
+        const y = scale([0, Math.max(...data.map(d => d.y))], [100, 0]);
+
+        const points = data.map(d => `${x(d.x)},${y(d.y)}`).join(' ');
+
+      }());
+    </script>
+
+  </body>
+</html>
